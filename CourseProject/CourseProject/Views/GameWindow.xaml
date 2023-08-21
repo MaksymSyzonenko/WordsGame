@@ -1,0 +1,263 @@
+﻿<Window x:Class="CourseProject.Views.GameWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views"
+        mc:Ignorable="d"
+        Title="GameWindow" Height="750" Width="1100">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="gradientStyle1" StartPoint="0.5,0" EndPoint="1, 1">
+            <GradientStop Color="Aqua" Offset="0"/>
+            <GradientStop Color="Aquamarine" Offset="0.3"/>
+            <GradientStop Color="HotPink" Offset="0.6"/>
+            <GradientStop Color="MediumPurple" Offset="1"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="gradientStyle2" StartPoint="0,0" EndPoint="1, 1">
+            <GradientStop Color="HotPink" Offset="1"/>
+            <GradientStop Color="MediumPurple" Offset="0"/>
+        </LinearGradientBrush>
+        <LinearGradientBrush x:Key="gradientStyle3" StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="Aqua" Offset="0"/>
+            <GradientStop Color="Aquamarine" Offset="0.5"/>
+            <GradientStop Color="MediumAquamarine" Offset="1"/>
+        </LinearGradientBrush>
+        <Style TargetType="CheckBox" x:Key="checkBoxStyle">
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="BorderBrush" Value="MediumPurple"/>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Background" Value="LightPink"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style x:Key="GenerateButton" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="{StaticResource gradientStyle2}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="25">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="{StaticResource gradientStyle3}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid Background="{StaticResource gradientStyle1}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Margin="15">
+            <Grid Panel.ZIndex="1" x:Name="gridBoard">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                    <RowDefinition Height="0.15*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                    <ColumnDefinition Width="0.15*"/>
+                </Grid.ColumnDefinitions>
+            </Grid>
+            <Border Background="White">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="80" Color="Gray" ShadowDepth="0"/>
+                </Border.Effect>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="0" Margin="70,5,70,15">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <WrapPanel Panel.ZIndex="1" Name="Letters" Margin="25,10,25,25"
+                        Grid.Row="0" Orientation="Horizontal"
+                        HorizontalAlignment="Center"/>
+            <TextBlock Name="Message" Panel.ZIndex="1" FontSize="20"
+                       Margin="20,85,20,0" TextAlignment="Center"/>
+            <Grid Margin="40,1,40,65" Panel.ZIndex="1" Grid.Row="1">
+                <TextBox Panel.ZIndex="1" Name="Word"
+                     BorderBrush="MediumPurple" Padding="0,7,0,0"
+                     BorderThickness="2.6" Background="AliceBlue"
+                     FontSize="20" TextAlignment="Center"/>
+                <TextBlock Panel.ZIndex="1" IsHitTestVisible="False" TextAlignment="Center" FontSize="20" Text="Type word here!" Padding="0,7,0,0" Foreground="Gray">
+                    <TextBlock.Style>
+                        <Style TargetType="{x:Type TextBlock}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Text, ElementName=Word}" Value="">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </TextBlock.Style>
+                </TextBlock>
+            </Grid>
+            <Button Content="Guess" Grid.Row="1" Panel.ZIndex="1"
+                    Margin="140,60,140,15" FontSize="25"
+                    Click="CheckWord" FontFamily="Bahnschrift Light"
+                    Background="{StaticResource gradientStyle3}" BorderBrush="SeaGreen"
+                    BorderThickness="2"
+                    Command="{Binding ChangeSkillCommand}"/>
+            <Button Content="♋️" Grid.Row="1" Panel.ZIndex="1" BorderThickness="0"
+                    Margin="65,58,295,13" FontSize="30" Background="White"
+                    Click="ShuffleLetters" FontFamily="Bahnschrift Light"/>
+            <Border Background="White" CornerRadius="25" Grid.RowSpan="2">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="40" Color="Gray" ShadowDepth="0"/>
+                </Border.Effect>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="1" Margin="15">
+            <StackPanel>
+                <Grid>
+                    <StackPanel Grid.Row="0" Panel.ZIndex="1" HorizontalAlignment="Center">
+                        <TextBlock Text="Select difficulty" Margin="10,30,10,10" FontSize="19" FontFamily="Bahnschrift Light"/>
+                        <CheckBox Margin="15,30,0,0" Name="EasyCheckBox" Checked="CheckBox_Checked" Style="{StaticResource checkBoxStyle}">
+                            <TextBlock Text="Easy" Margin="15,0,0,0" FontSize="20" FontFamily="Bahnschrift Light"/>
+                        </CheckBox>
+                        <CheckBox Margin="15,30,0,0" Name="MidCheckBox" Checked="CheckBox_Checked" Style="{StaticResource checkBoxStyle}">
+                            <TextBlock Text="Mid" Margin="15,0,0,0" FontSize="20" FontFamily="Bahnschrift Light"/>
+                        </CheckBox>
+                        <CheckBox Margin="15,30,0,0" Name="HardCheckBox" Checked="CheckBox_Checked" Style="{StaticResource checkBoxStyle}">
+                            <TextBlock Text="Hard" Margin="15,0,0,0" FontSize="20" FontFamily="Bahnschrift Light"/>
+                        </CheckBox>
+                    </StackPanel>
+                    <Border Height="270" Grid.Row="0" Background="White" CornerRadius="25">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="40" Color="Gray" ShadowDepth="0"/>
+                        </Border.Effect>
+                    </Border>
+                </Grid>
+                <Grid>
+                    <Button Height="55" Margin="0,20,0,0" Content="Generate" Panel.ZIndex="1"
+                            Style="{StaticResource GenerateButton}" Grid.Row="1" FontSize="25" FontFamily="Bahnschrift Light"
+                            Command="{Binding GenerateLevelCommand}" Click="GenerateButton"/>
+                    <Border Height="55" Margin="1,23,1,3" Grid.Row="1" Background="White" CornerRadius="25" BorderThickness="0">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="40" Color="Gray" ShadowDepth="0"/>
+                        </Border.Effect>
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Column="2" Grid.RowSpan="2" Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Panel.ZIndex="1" VerticalAlignment="Top" Margin="10" Grid.Row="0">
+                <TextBlock Margin="5,10,0,0" Foreground="DarkGray" Text="Nickname:" FontSize="25" FontFamily="Bahnschrift Light"/>
+                <TextBlock Margin="10,10,0,0" Text="{Binding Path=Login, UpdateSourceTrigger=PropertyChanged}" FontSize="20" FontFamily="Bahnschrift Light"/>
+                <TextBlock Margin="5,10,0,0" Foreground="DarkGray" Text="Rank:" FontSize="25" FontFamily="Bahnschrift Light"/>
+                <TextBlock Margin="10,10,0,0" Text="{Binding Path=Rank, UpdateSourceTrigger=PropertyChanged}" FontSize="20" FontFamily="Bahnschrift Light"/>
+                <TextBlock Margin="5,10,10,0" Foreground="DarkGray" Text="Completed levels:" FontSize="25" FontFamily="Bahnschrift Light"/>
+                <TextBlock Margin="10,10,0,0" Text="{Binding Path=CompletedLevels, UpdateSourceTrigger=PropertyChanged}" FontSize="20" FontFamily="Bahnschrift Light"/>
+                <TextBlock Margin="5,10,0,0" Foreground="DarkGray" Text="Guessed words:" FontSize="25" FontFamily="Bahnschrift Light"/>
+                <TextBlock Margin="10,10,0,0" Text="{Binding Path=GuessedWords, UpdateSourceTrigger=PropertyChanged}" FontSize="20" FontFamily="Bahnschrift Light"/>
+            </StackPanel>
+            <Border Grid.Row="0" Background="White" Margin="0,0,0,15" CornerRadius="25" BorderThickness="0">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="40" Color="Gray" ShadowDepth="0"/>
+                </Border.Effect>
+            </Border>
+            <StackPanel HorizontalAlignment="Center" Panel.ZIndex="1" Grid.Row="1">
+                <TextBlock Foreground="#5e5e5e" HorizontalAlignment="Center" Margin="0,15,0,0" Text="Settings" FontSize="25" FontFamily="Bahnschrift Light"/>
+                <Button BorderThickness="2" Background="LightBlue" Content="Manual"
+                        Margin="10,5,10,10" Height="40" Width="220" FontSize="20"
+                        FontFamily="Bahnschrift Light"
+                        Command="{Binding ShowManualCommand}"/>
+                <Button BorderThickness="2" Background="LightBlue" Content="Change password"
+                        Margin="10,5,10,10" Height="40" Width="220" FontSize="20"
+                        FontFamily="Bahnschrift Light"
+                        Command="{Binding ChangePasswordCommand}"/>
+                <Button BorderThickness="2" Background="LightBlue" Content="Check leaderbord"
+                        Margin="10,5,10,10" Height="40" Width="220" FontSize="20"
+                        FontFamily="Bahnschrift Light"
+                        Command="{Binding ShowRatingCommand}"/>
+                <Button BorderThickness="2" Background="Khaki" Content="Remove account"
+                        Margin="10,5,10,10" Height="40" Width="220" FontSize="20"
+                        FontFamily="Bahnschrift Light"
+                        Command="{Binding RemoveAccountCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                           AncestorType={x:Type Window}}}"/>
+                <Button BorderThickness="2" Background="LightCoral" Content="Log Out"
+                        Margin="10,20,10,10" Height="40" Width="220" FontSize="25"
+                        FontFamily="Bahnschrift Light"
+                        Command="{Binding LogOutCommand}"
+                        CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                           AncestorType={x:Type Window}}}"/>
+            </StackPanel>
+            <Border Grid.Row="1" Background="#f2f2f2" CornerRadius="25" BorderThickness="0">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="40" Color="Gray" ShadowDepth="0"/>
+                </Border.Effect>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="1"  Grid.Column="1" Margin="15,0,15,15">
+            <StackPanel Panel.ZIndex="1">
+                <TextBlock Text="Take a hint or show all words!"
+                           FontSize="25" TextWrapping="Wrap"
+                           FontFamily="Bahnschrift Light"
+                           Foreground="#5e5e5e" Margin="10,20,10,0"
+                           TextAlignment="Center"/>
+                <Button Margin="10,10,10,10" Height="40"
+                    Click="Hint" Content="Hint" FontSize="25"
+                    FontFamily="Bahnschrift Light"
+                    Command="{Binding ChangeSkillCommand}"
+                    Background="Orange" BorderThickness="2"/>
+                <Button Margin="10,0,10,10" Height="40"
+                    Click="ShowWords" Content="Show words" FontSize="23"
+                    FontFamily="Bahnschrift Light"
+                    Command="{Binding ChangeSkillCommand}"
+                    Background="Orange" BorderThickness="2"/>
+            </StackPanel>
+            <Border Grid.Row="1" Background="#f2f2f2" CornerRadius="25" BorderThickness="0">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="40" Color="Gray" ShadowDepth="0"/>
+                </Border.Effect>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>

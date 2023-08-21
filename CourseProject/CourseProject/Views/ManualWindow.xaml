@@ -1,0 +1,15 @@
+﻿<Window x:Class="CourseProject.Views.ManualWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views"
+        mc:Ignorable="d"
+        Title="ManualWindow" Height="445" Width="870">
+    <Grid Background="LightGray">
+        <StackPanel>
+            <TextBlock Text="Вітаємо у грі!" HorizontalAlignment="Center" Foreground="Purple" FontSize="35" FontFamily="Bahnschrift Light"/>
+            <TextBlock Margin="10,0,0,0" FontSize="25" TextWrapping="Wrap" FontFamily="Bahnschrift Light" Text="  Щоб почати гру, виберіть складність у розділі Select difficulty, далі натисніть кнопку Generate, щоб сгенерувати рівень, та почати грати. Сенс гри - відгадати всі сховані слова, за допомогою наданих літер, які є в цих словах, для цього ввести слово у поле Type word here! та натиснути кнопку Guess. У розділі Settings ви також можете змінити пароль, продивитися загальний рейтинг гравців, видалити свій аккаунт або вийти з нього. У правому верхньому куті відображається ваша статистика. У розділі Take a hint or show words! , ви можете отримати підказку, яка відкриє одну випадкову літеру, натиснувши на кнопку Hint, та подивитися всі заховані слова натиснувши кнопку Show words,     АЛЕ! Це повністю анулює всі ці слова і їх не можна буде вгадувати."/>
+        </StackPanel>
+    </Grid>
+</Window>

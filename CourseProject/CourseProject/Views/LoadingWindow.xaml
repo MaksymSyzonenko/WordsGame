@@ -1,0 +1,29 @@
+﻿<Window x:Class="CourseProject.Views.LoadingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CourseProject.Views"
+        mc:Ignorable="d"
+        Title="LoadingWindow" Height="180" Width="400">
+    <Window.Resources>
+        <LinearGradientBrush x:Key="gradientStyle1" StartPoint="0,0" EndPoint="1, 1">
+            <GradientStop Color="LightSeaGreen" Offset="0"/>
+            <GradientStop Color="Aquamarine" Offset="0.5"/>
+            <GradientStop Color="GreenYellow" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Resources>
+    <Grid Background="{StaticResource gradientStyle1}">
+        <StackPanel Margin="35" Panel.ZIndex="2">
+            <Label FontSize="17" FontFamily="Bahnschrift Light" Content="Завантаження слів..." HorizontalAlignment="Center"/>
+            <Border BorderThickness="1" BorderBrush="DarkGray" Height="25" Width="240">
+                <ProgressBar Foreground="LightSeaGreen" Name="progressBar" HorizontalAlignment="Center" Height="25" Width="240"/>
+            </Border>
+        </StackPanel>
+        <Border Margin="30" Background="White" CornerRadius="25">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="40" Color="Gray" ShadowDepth="0"/>
+            </Border.Effect>
+        </Border>
+    </Grid>
+</Window>
